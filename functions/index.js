@@ -3,7 +3,6 @@
  * List of all existing endpoints are listed below.
  *
  * Triggers: DB triggers are listed below the endpoints declaration.
- *
  */
 
 const functions = require("firebase-functions");

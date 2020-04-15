@@ -8,12 +8,10 @@ first 12 videos (4.23 hours) consist of firebase backend development from scratc
 All routes are listed in "/functions/index.js"
 All db triffers are listed in "/functions/index.js"
 
-This repo codebase if integrated with firebase "shouting-app" project under login of "saurabhshah23@gmail.com"
-STEPS to SETUP:
-clone the repo.
-cd into "/functions"
-run "npm i" to install dependencies before locally serving the fb functions.
+## This repo codebase if integrated with firebase "shouting-app" project under login of "saurabhshah23@gmail.com"
 
+### STEPS to SETUP:
 
-
-
+- clone the repo.
+- cd into "/functions"
+- run "npm i" to install dependencies before locally serving the fb functions.
