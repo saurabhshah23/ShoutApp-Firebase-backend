@@ -47,6 +47,9 @@ build/Release
 node_modules/
 /functions/node_modules
 
+# Security
+/keys
+
 # Optional npm cache directory
 .npm
 

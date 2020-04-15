@@ -1,13 +1,9 @@
 /**
  * Shouting App: All endpoints available from here:
- * 1. /signup - POST with user object
- * 2. /login - POST with user object having email and password
- * 3. /getShouts - GET get all available shouts
- * 4. /shout - POST adds a new shout
- * 5. FBAuth - middleware - to check if the user is authorised user with valid token.
- * 6. /image - POST to upload user profile image
- * 7. /user - POST to add user profile details
- * 8. /user - GET get all details of the user.
+ * List of all existing endpoints are listed below.
+ *
+ * Triggers: DB triggers are listed below the endpoints declaration.
+ *
  */
 
 const functions = require("firebase-functions");
