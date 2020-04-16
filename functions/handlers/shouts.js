@@ -26,32 +26,36 @@ exports.getAllShouts = (req, res) => {
 
 // Create a shout
 exports.createShout = (req, res) => {
-  const newShout = {
-    body: req.body.body,
-    userHandle: req.user.handle,
-    userImage: req.user.imageUrl,
-    createdAt: new Date().toISOString(),
-    likeCount: 0,
-    commentCount: 0,
-  };
-  console.log(JSON.stringify(newShout));
-  db.collection("shouts")
-    .add(newShout)
-    .then((doc) => {
-      let tmpRes = `New shout with id=${doc.id} added successfully in shouts collection.`;
-      console.log(tmpRes);
-      const resShout = newShout;
-      resShout.shoutId = doc.id;
-      return res.json(resShout);
-      // return res.json({ message: tmpRes });
-      // return res.json({"message": "createShout post successful..."})
-    })
-    .catch((err) => {
-      console.log(err);
-      return res
-        .status(500)
-        .json({ message: "Failed to add new shout!" + JSON.stringify(err) });
-    });
+  if (req.body.body.trim() === "") {
+    return res.status(400).json({ body: "Must not be empty." });
+  } else {
+    const newShout = {
+      body: req.body.body,
+      userHandle: req.user.handle,
+      userImage: req.user.imageUrl,
+      createdAt: new Date().toISOString(),
+      likeCount: 0,
+      commentCount: 0,
+    };
+    console.log(JSON.stringify(newShout));
+    db.collection("shouts")
+      .add(newShout)
+      .then((doc) => {
+        let tmpRes = `New shout with id=${doc.id} added successfully in shouts collection.`;
+        console.log(tmpRes);
+        const resShout = newShout;
+        resShout.shoutId = doc.id;
+        return res.json(resShout);
+        // return res.json({ message: tmpRes });
+        // return res.json({"message": "createShout post successful..."})
+      })
+      .catch((err) => {
+        console.log(err);
+        return res
+          .status(500)
+          .json({ message: "Failed to add new shout!" + JSON.stringify(err) });
+      });
+  }
 };
 
 // Get shout details
