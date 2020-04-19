@@ -81,7 +81,10 @@ exports.getShout = (req, res) => {
     .then((data) => {
       shoutData.comments = [];
       data.forEach((doc) => {
-        shoutData.comments.push(doc.data());
+        let commentData = doc.data();
+        commentData.id = doc.id;
+        shoutData.comments.push(commentData);
+        // shoutData.comments.push(doc.data());
       });
       return res.json(shoutData);
     })
