@@ -146,7 +146,8 @@ exports.addComment = (req, res) => {
     .then(() => {
       return db.collection("comments").add(commentData);
     })
-    .then(() => {
+    .then((docRef) => {
+      commentData.id = docRef.id;
       return res.json(commentData);
     })
     .catch((err) => {
