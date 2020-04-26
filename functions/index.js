@@ -9,6 +9,8 @@ const functions = require("firebase-functions");
 // adding express js.
 const app = require("express")();
 const Constants = require("./util/constants");
+const cors = require("cors");
+app.use(cors()); //express middleware to add cors headers.
 
 /** MIDDLEWARE */
 const FBAuth = require("./util/fbAuth");
